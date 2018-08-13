@@ -30,7 +30,7 @@
         "php": ">=7.0",
         "swoft/framework": "^1.0.24",
         "swoft/http-client": "^1.0",
-        "overtrue/wechat": "^4.1"
+        "overtrue/wechat": "^4.1.1"
     },
     "require-dev": {
         "swoft/swoole-ide-helper": "dev-master",

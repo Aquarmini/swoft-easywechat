@@ -2,6 +2,8 @@
 
 namespace SwoftTest\Cases\EasyWeChat;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use Swoftx\EasyWeChat\Factory;
 use SwoftTest\Cases\AbstractTestCase;
 use Swoftx\EasyWeChat\Kernel\HttpClient;
@@ -12,7 +14,7 @@ class HttpClientTest extends AbstractTestCase
     {
         $app = Factory::basicService([]);
         $httpClient = $app->http_client;
-        $this->assertInstanceOf(HttpClient::class, $httpClient);
+        $this->assertInstanceOf(ClientInterface::class, $httpClient);
     }
 
     public function testAccessToken()
