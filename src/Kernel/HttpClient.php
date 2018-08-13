@@ -28,13 +28,12 @@ class HttpClient implements ClientInterface
 
     public function send(RequestInterface $request, array $options = [])
     {
-        $adapter = $this->client->getAdapter();
-        return $adapter->request($request, $options)->getResponse();
+        throw new GuzzleException('send is invalid，Please use request instead!');
     }
 
     public function sendAsync(RequestInterface $request, array $options = [])
     {
-        throw new GuzzleException('SendAsync is invalid，Please use send instead!');
+        throw new GuzzleException('SendAsync is invalid，Please use request instead!');
     }
 
     public function request($method, $uri, array $options = [])
