@@ -8,6 +8,7 @@
 namespace Swoftx\EasyWeChat\Kernel\Traits;
 
 use Swoftx\EasyWeChat\Kernel\Providers\SwoftHttpClientServiceProvider;
+use Swoftx\EasyWeChat\Kernel\Providers\SwoftRequestServiceProvider;
 
 trait SwoftHttpClientSupport
 {
@@ -20,6 +21,7 @@ trait SwoftHttpClientSupport
     {
         $providers = parent::getProviders();
         $providers[] = SwoftHttpClientServiceProvider::class;
+        $providers[] = SwoftRequestServiceProvider::class;
         return $providers;
     }
 }
