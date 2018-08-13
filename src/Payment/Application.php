@@ -8,7 +8,9 @@
 namespace Swoftx\EasyWeChat\Payment;
 
 use EasyWeChat\Payment\Application as PaymentApplication;
+use Swoftx\EasyWeChat\Kernel\Traits\SwoftHttpClientSupport;
 
 class Application extends PaymentApplication
 {
+    use SwoftHttpClientSupport;
 }

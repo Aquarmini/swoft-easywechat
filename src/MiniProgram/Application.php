@@ -8,7 +8,9 @@
 namespace Swoftx\EasyWeChat\MiniProgram;
 
 use EasyWeChat\MiniProgram\Application as MiniProgramApplication;
+use Swoftx\EasyWeChat\Kernel\Traits\SwoftHttpClientSupport;
 
 class Application extends MiniProgramApplication
 {
+    use SwoftHttpClientSupport;
 }

@@ -8,7 +8,9 @@
 namespace Swoftx\EasyWeChat\OpenWork;
 
 use EasyWeChat\OpenWork\Application as OpenWorkApplication;
+use Swoftx\EasyWeChat\Kernel\Traits\SwoftHttpClientSupport;
 
 class Application extends OpenWorkApplication
 {
+    use SwoftHttpClientSupport;
 }

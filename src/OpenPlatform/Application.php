@@ -8,7 +8,9 @@
 namespace Swoftx\EasyWeChat\OpenPlatform;
 
 use EasyWeChat\OpenPlatform\Application as OpenPlatformApplication;
+use Swoftx\EasyWeChat\Kernel\Traits\SwoftHttpClientSupport;
 
 class Application extends OpenPlatformApplication
 {
+    use SwoftHttpClientSupport;
 }
