@@ -4,6 +4,7 @@ namespace Swoftx\EasyWeChat\Kernel;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\RequestInterface;
+use Swoft\Helper\JsonHelper;
 use Swoft\HttpClient\Client;
 
 class HttpClient implements ClientInterface
@@ -14,7 +15,7 @@ class HttpClient implements ClientInterface
 
     public function __construct($config)
     {
-        $this->client = new Client($config);
+        $this->client = new Client();
         $this->config = $config;
     }
 
@@ -31,7 +32,22 @@ class HttpClient implements ClientInterface
 
     public function request($method, $uri, array $options = [])
     {
-        return $this->client->request($method, $uri, $options)->getResponse();
+        $body = '';
+        if (isset($options['query'])) {
+            $uri .= '?' . http_build_query($options['query']);
+        }
+
+        if (isset($options['form_params'])) {
+            $body = http_build_query($options['form_params']);
+        }
+
+        if (isset($options['json'])) {
+            $body = JsonHelper::encode($options['json']);
+        }
+
+        return $this->client->request($method, $uri, [
+            'body' => $body
+        ])->getResponse();
     }
 
     public function requestAsync($method, $uri, array $options = [])

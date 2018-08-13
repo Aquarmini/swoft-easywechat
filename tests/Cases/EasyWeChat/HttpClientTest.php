@@ -31,10 +31,16 @@ class HttpClientTest extends AbstractTestCase
             ],
         ];
 
-        go(function () use ($config) {
-            $app = Factory::officialAccount($config);
+        $app = Factory::officialAccount($config);
+        $res = $app->access_token->getToken(true);
+        $this->assertArrayHasKey('access_token', $res);
+        $this->assertArrayHasKey('expires_in', $res);
+    }
 
-            print_r($app->access_token->getToken(true));
+    public function testAccessTokenByCo()
+    {
+        go(function () {
+            $this->testAccessToken();
         });
     }
 }
