@@ -3,7 +3,7 @@
  * Swoft Entity Cache
  *
  * @author   limx <limingxin@swoft.org>
- * @link     https://github.com/limingxinleo/swoft-aop-cacheable
+ * @link     https://github.com/limingxinleo/swoft-easywechat
  */
 require_once dirname(dirname(__FILE__)) . '/vendor/autoload.php';
 require_once dirname(dirname(__FILE__)) . '/tests/config/define.php';

@@ -3,7 +3,7 @@
  * Swoft Entity Cache
  *
  * @author   limx <limingxin@swoft.org>
- * @link     https://github.com/limingxinleo/swoft-aop-cacheable
+ * @link     https://github.com/limingxinleo/swoft-easywechat
  */
 namespace SwoftTest\Cases;
 
