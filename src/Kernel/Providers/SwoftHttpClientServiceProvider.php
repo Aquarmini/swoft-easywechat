@@ -9,7 +9,7 @@ namespace Swoftx\EasyWeChat\Kernel\Providers;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
-use Swoft\HttpClient\Client;
+use Swoftx\EasyWeChat\Kernel\HttpClient;
 
 class SwoftHttpClientServiceProvider implements ServiceProviderInterface
 {
@@ -24,7 +24,7 @@ class SwoftHttpClientServiceProvider implements ServiceProviderInterface
     public function register(Container $pimple)
     {
         $pimple['http_client'] = function ($app) {
-            return new Client($app['config']->get('http', []));
+            return new HttpClient($app['config']->get('http', []));
         };
     }
 }

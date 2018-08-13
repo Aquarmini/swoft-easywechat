@@ -1,4 +1,5 @@
 <?php
+
 namespace SwoftTest\Cases\EasyWeChat;
 
 use Swoft\HttpClient\Client;
