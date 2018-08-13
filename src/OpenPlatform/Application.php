@@ -5,7 +5,7 @@
  * @author   limx <limingxin@swoft.org>
  * @link     https://github.com/limingxinleo/swoft-easywechat
  */
-namespace Swofts\EasyWeChat\OpenPlatform;
+namespace Swoftx\EasyWeChat\OpenPlatform;
 
 use EasyWeChat\OpenPlatform\Application as OpenPlatformApplication;
 

@@ -5,7 +5,7 @@
  * @author   limx <limingxin@swoft.org>
  * @link     https://github.com/limingxinleo/swoft-easywechat
  */
-namespace SwoftTest\Cases\Cacheable;
+namespace SwoftTest\Cases\EasyWeChat;
 
 use SwoftTest\Cases\AbstractTestCase;
 

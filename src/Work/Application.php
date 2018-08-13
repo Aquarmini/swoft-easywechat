@@ -5,7 +5,7 @@
  * @author   limx <limingxin@swoft.org>
  * @link     https://github.com/limingxinleo/swoft-easywechat
  */
-namespace Swofts\EasyWeChat\Work;
+namespace Swoftx\EasyWeChat\Work;
 
 use EasyWeChat\Work\Application as WorkApplication;
 

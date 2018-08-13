@@ -5,7 +5,9 @@
  * @author   limx <limingxin@swoft.org>
  * @link     https://github.com/limingxinleo/swoft-easywechat
  */
-namespace Swofts\EasyWeChat\Kernel\Traits;
+namespace Swoftx\EasyWeChat\Kernel\Traits;
+
+use Swoftx\EasyWeChat\Kernel\Providers\SwoftHttpClientServiceProvider;
 
 trait SwoftHttpClientSupport
 {
@@ -17,7 +19,7 @@ trait SwoftHttpClientSupport
     public function getProviders()
     {
         $providers = parent::getProviders();
-        $providers[] = '';
+        $providers[] = SwoftHttpClientServiceProvider::class;
         return $providers;
     }
 }

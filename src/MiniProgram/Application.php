@@ -5,7 +5,7 @@
  * @author   limx <limingxin@swoft.org>
  * @link     https://github.com/limingxinleo/swoft-easywechat
  */
-namespace Swofts\EasyWeChat\MiniProgram;
+namespace Swoftx\EasyWeChat\MiniProgram;
 
 use EasyWeChat\MiniProgram\Application as MiniProgramApplication;
 

@@ -1,15 +1,15 @@
 {
-    "name": "limingxinleo/swoft-aop-cacheable",
+    "name": "limingxinleo/swoft-easywechat",
     "type": "library",
     "license": "MIT",
     "keywords": [
         "php",
         "swoole",
         "swoft",
-        "db",
-        "model"
+        "wechat",
+        "easywechat"
     ],
-    "description": "Swoft 基于Aop缓存扩展",
+    "description": "Swoft EasyWeChat扩展",
     "authors": [
         {
             "name": "李铭昕",

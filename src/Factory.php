@@ -5,7 +5,7 @@
  * @author   limx <limingxin@swoft.org>
  * @link     https://github.com/limingxinleo/swoft-easywechat
  */
-namespace Swofts\EasyWeChat;
+namespace Swoftx\EasyWeChat;
 
 use Swoft\Helper\StringHelper;
 
@@ -31,7 +31,7 @@ class Factory
     public static function make($name, array $config)
     {
         $namespace = StringHelper::studly($name);
-        $application = "\\Swofts\\EasyWeChat\\{$namespace}\\Application";
+        $application = "\\Swoftx\\EasyWeChat\\{$namespace}\\Application";
 
         return new $application($config);
     }

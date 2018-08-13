@@ -5,7 +5,7 @@
  * @author   limx <limingxin@swoft.org>
  * @link     https://github.com/limingxinleo/swoft-easywechat
  */
-namespace Swofts\EasyWeChat\Kernel\Providers;
+namespace Swoftx\EasyWeChat\Kernel\Providers;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
