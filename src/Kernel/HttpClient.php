@@ -22,8 +22,12 @@ class HttpClient implements ClientInterface
 
     public function __construct($config)
     {
-        $this->client = new Client();
-        $this->config = $config;
+        $defaults = [];
+        if (isset($config['base_uri'])) {
+            $defaults['base_uri'] = $config['base_uri'];
+        }
+        $this->client = new Client($defaults);
+        $this->config = $defaults;
     }
 
     public function send(RequestInterface $request, array $options = [])
@@ -38,21 +42,15 @@ class HttpClient implements ClientInterface
 
     public function request($method, $uri, array $options = [])
     {
-        $body = '';
-        if (isset($options['query'])) {
+        if (isset($options['query']) && is_array($options['query']) && count($options['query']) > 0) {
             $uri .= '?' . http_build_query($options['query']);
         }
 
-        if (isset($options['form_params'])) {
-            $body = http_build_query($options['form_params']);
-        }
-
-        if (isset($options['json'])) {
-            $body = JsonHelper::encode($options['json']);
-        }
-
+        $body = $options['body'];
+        $headers = $options['headers'];
         $response = $this->client->request($method, $uri, [
-            'body' => $body
+            'body' => $body,
+            'headers' => $headers,
         ])->getResponse();
 
         $string = $response->getBody()->getContents();
