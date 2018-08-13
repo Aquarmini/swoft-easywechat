@@ -1,0 +1,39 @@
+{
+    "name": "limingxinleo/swoft-aop-cacheable",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "php",
+        "swoole",
+        "swoft",
+        "db",
+        "model"
+    ],
+    "description": "Swoft 基于Aop缓存扩展",
+    "authors": [
+        {
+            "name": "李铭昕",
+            "email": "715557344@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Swoftx\\EasyWeChat\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SwoftTest\\": "tests"
+        }
+    },
+    "require": {
+        "php": ">=7.0",
+        "swoft/framework": "^1.0.24",
+        "swoft/http-client": "^1.0",
+        "overtrue/wechat": "^4.1"
+    },
+    "require-dev": {
+        "swoft/swoole-ide-helper": "dev-master",
+        "phpunit/phpunit": "^5.7"
+    }
+}
