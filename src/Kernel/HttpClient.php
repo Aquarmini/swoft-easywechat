@@ -1,4 +1,10 @@
 <?php
+/**
+ * Swoft Entity Cache
+ *
+ * @author   limx <limingxin@swoft.org>
+ * @link     https://github.com/limingxinleo/swoft-easywechat
+ */
 namespace Swoftx\EasyWeChat\Kernel;
 
 use GuzzleHttp\ClientInterface;
@@ -6,6 +12,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\RequestInterface;
 use Swoft\Helper\JsonHelper;
 use Swoft\HttpClient\Client;
+use Swoftx\EasyWeChat\Kernel\Streams\SwooleStream;
 
 class HttpClient implements ClientInterface
 {
@@ -45,9 +52,13 @@ class HttpClient implements ClientInterface
             $body = JsonHelper::encode($options['json']);
         }
 
-        return $this->client->request($method, $uri, [
+        $response = $this->client->request($method, $uri, [
             'body' => $body
         ])->getResponse();
+
+        $string = $response->getBody()->getContents();
+
+        return $response->withBody(new SwooleStream($string));
     }
 
     public function requestAsync($method, $uri, array $options = [])
@@ -62,4 +73,3 @@ class HttpClient implements ClientInterface
             : (isset($this->config[$option]) ? $this->config[$option] : null);
     }
 }
-

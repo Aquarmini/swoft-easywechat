@@ -1,12 +1,15 @@
 <?php
-
+/**
+ * Swoft Entity Cache
+ *
+ * @author   limx <limingxin@swoft.org>
+ * @link     https://github.com/limingxinleo/swoft-easywechat
+ */
 namespace SwoftTest\Cases\EasyWeChat;
 
-use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use Swoftx\EasyWeChat\Factory;
 use SwoftTest\Cases\AbstractTestCase;
-use Swoftx\EasyWeChat\Kernel\HttpClient;
 
 class HttpClientTest extends AbstractTestCase
 {
