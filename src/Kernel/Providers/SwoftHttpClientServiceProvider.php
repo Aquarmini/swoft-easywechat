@@ -27,7 +27,7 @@ class SwoftHttpClientServiceProvider implements ServiceProviderInterface
     {
         $pimple['http_client'] = function ($app) {
             if (App::isCoContext()) {
-                return new HttpClient($app['config']->get('http', []));
+                return new HttpClient($app, $app['config']->get('http', []));
             }
             return new Client($app['config']->get('http', []));
         };

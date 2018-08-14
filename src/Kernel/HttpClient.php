@@ -7,8 +7,11 @@
  */
 namespace Swoftx\EasyWeChat\Kernel;
 
+use EasyWeChat\Kernel\AccessToken;
+use EasyWeChat\Kernel\ServiceContainer;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\RequestInterface;
 use Swoft\Helper\JsonHelper;
 use Swoft\HttpClient\Client;
@@ -20,7 +23,10 @@ class HttpClient implements ClientInterface
 
     protected $config;
 
-    public function __construct($config)
+    /** @var ServiceContainer */
+    protected $app;
+
+    public function __construct($app, $config)
     {
         $defaults = [];
         if (isset($config['base_uri'])) {
@@ -28,6 +34,7 @@ class HttpClient implements ClientInterface
         }
         $this->client = new Client($defaults);
         $this->config = $defaults;
+        $this->app = $app;
     }
 
     public function send(RequestInterface $request, array $options = [])
@@ -51,6 +58,14 @@ class HttpClient implements ClientInterface
 
         if (isset($this->config['base_uri'])) {
             $uri = str_replace($this->config['base_uri'], '', $uri);
+        }
+
+        if ($this->app->access_token) {
+            /** @var AccessToken $accessToken */
+            $accessToken = $this->app->access_token;
+            $request = new Request($method, $uri, $headers, $body);
+            $request = $accessToken->applyToRequest($request, $options);
+            $uri = $request->getUri();
         }
 
         $response = $this->client->request($method, $uri, [
