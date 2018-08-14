@@ -46,8 +46,8 @@ class HttpClient implements ClientInterface
             $uri .= '?' . http_build_query($options['query']);
         }
 
-        $body = $options['body'];
-        $headers = $options['headers'];
+        $body = $options['body'] ?? '';
+        $headers = $options['headers'] ?? [];
         $response = $this->client->request($method, $uri, [
             'body' => $body,
             'headers' => $headers,
