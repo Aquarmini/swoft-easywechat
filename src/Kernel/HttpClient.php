@@ -13,7 +13,6 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\RequestInterface;
-use Swoft\Helper\JsonHelper;
 use Swoft\HttpClient\Client;
 use Swoftx\EasyWeChat\Kernel\Streams\SwooleStream;
 
