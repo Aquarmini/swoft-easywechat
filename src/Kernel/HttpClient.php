@@ -48,6 +48,11 @@ class HttpClient implements ClientInterface
 
         $body = $options['body'] ?? '';
         $headers = $options['headers'] ?? [];
+
+        if (isset($this->config['base_uri'])) {
+            $uri = str_replace($this->config['base_uri'], '', $uri);
+        }
+
         $response = $this->client->request($method, $uri, [
             'body' => $body,
             'headers' => $headers,
